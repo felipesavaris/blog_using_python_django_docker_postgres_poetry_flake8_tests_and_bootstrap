@@ -6,7 +6,7 @@ from django.test import TestCase
 from .models import PostBlog
 
 
-class TestViews(TestCase):
+class TestViewsTemplatesModel(TestCase):
 
     def setUp(self):
         post = PostBlog.objects.create(
@@ -55,3 +55,13 @@ class TestViews(TestCase):
         response = self.client.post(f'/blog/delete/{last_post.id}')
         self.assertTemplateNotUsed(response, None)
         self.assertRedirects(response, '/blog/')
+
+    # test model postblog
+    def test_model_postbog(self):
+        new_post = PostBlog(title='title post', descriptiom='desc at post')
+        assert isinstance(new_post, PostBlog)
+        assert isinstance(new_post.title, str)
+        assert isinstance(new_post.descriptiom, str)
+
+        assert new_post.title == 'title post'
+        assert 'at' in new_post.descriptiom
