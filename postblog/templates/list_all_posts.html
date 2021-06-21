@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+{% extends 'base.html' %}
+
+{% block content %}
+
 <body>
     
     <table class="table">
@@ -21,12 +17,15 @@
                     <tr>
                         <td>{{item.id}}</td>
                         <td>{{item.title}}</td>
-                        <td><a type="button" class="btn btn-warning" href="{% url 'update_post' id=item.id %}">Editar</a></td>
-                        <td><a type="button" class="btn btn-danger" href="{% url 'delete_post' id=item.id %}">Deletar</a></td>
+                        <td>
+                            <a type="button" class="btn btn-primary" href="{% url 'update_post' id=item.id %}">Editar</a>
+                            <a type="button" class="btn btn-danger" href="{% url 'delete_post' id=item.id %}">Deletar</a>
+                        </td>
                     </tr>
                 {% endfor %}
             </tbody>
     </table>
 
 </body>
-</html>
+
+{% endblock %}
