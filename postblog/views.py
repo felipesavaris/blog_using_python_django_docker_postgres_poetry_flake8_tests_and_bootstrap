@@ -17,8 +17,13 @@ def create_post(request):
     return render(request, 'form.html', {'form': form})
 
 
-def update_post(request):
-    pass
+def update_post(request, id):
+    post = PostBlog.objects.get(id=id)
+    form = PostBlogForms(request.POST or None, instance=post)
+    if form.is_valid():
+        form.save()
+        return redirect('list_all_posts')
+    return render(request, 'form.html', {'form': form})
 
 
 def delete_post(request):
