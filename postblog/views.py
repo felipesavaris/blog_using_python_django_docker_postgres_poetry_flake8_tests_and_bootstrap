@@ -26,5 +26,7 @@ def update_post(request, id):
     return render(request, 'form.html', {'form': form})
 
 
-def delete_post(request):
-    pass
+def delete_post(request, id):
+    post = PostBlog.objects.get(id=id)
+    post.delete()
+    return redirect('list_all_posts')
