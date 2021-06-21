@@ -1,0 +1,20 @@
+body {
+    background-color: #EAEAF4;
+}
+.container {
+    margin: 0 auto;
+    text-align:center;
+    display: flex;
+    justify-content: center;
+}
+
+.formcontainer {
+    margin: 7%;
+    width: 45%;
+    padding:6%;
+    display: flex;
+    justify-content: center;
+    text-align: end;
+    background-color: white;
+    border-radius: 20px;
+}
