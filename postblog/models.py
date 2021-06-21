@@ -6,4 +6,4 @@ class PostBlog(models.Model):
 
     title = models.CharField(max_length=60)
     # description = RichTextField()
-    descriptiom = models.TextField() # blank=True
+    descriptiom = models.TextField()  # blank=True
